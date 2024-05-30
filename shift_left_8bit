@@ -1,0 +1,22 @@
+module shift_left_8bit(
+    input logic [7:0] a,
+    input logic [3:0] b,
+    output logic [7:0] c_o
+);
+    
+    always_comb begin : shift_left
+        case (b)
+            4'd0: c_o = a;
+            4'd1: c_o = {a[6:0], 1'b0};
+            4'd2: c_o = {a[5:0], 2'b0};
+            4'd3: c_o = {a[4:0], 3'b0};
+            4'd4: c_o = {a[3:0], 4'b0};
+            4'd5: c_o = {a[2:0], 5'b0};
+            4'd6: c_o = {a[1:0], 6'b0};
+            4'd7: c_o = {a[0], 7'b0};
+            4'd8: c_o = 8'b0;
+            default: c_o = 8'b0;
+        endcase
+    end : shift_left
+    
+endmodule
